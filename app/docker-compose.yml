@@ -6,6 +6,8 @@ services:
       - 8080:5000
     environment:
       - CURRENT_ENVIRONMENT=production
+    volumes:
+      - data:/app/data
 
    frontend:
     image: annaplaideau/frontimage:latest
@@ -13,3 +15,7 @@ services:
       - 8081:80
     environment:
       - WS_BACK_URL=http://localhost:8080
+
+volumes:
+  data:
+    name: data-volume
