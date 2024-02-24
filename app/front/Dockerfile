@@ -4,11 +4,11 @@ WORKDIR /usr/share/nginx/html
 
 COPY ./index.html index.html
 COPY ./style.css style.css
-COPY ./entrypoint.sh /docker-entrypoint.sh
+COPY ./entrypoint.sh /usr/local/bin/
 
-RUN chmod +x /docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 ENV WS_BACK_URL=http://localhost:8080
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 EXPOSE 80
